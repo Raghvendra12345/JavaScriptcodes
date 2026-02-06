@@ -31,14 +31,20 @@ function haveCoffee() {
  }
 
 boilWater()
-  .then(addCoffeePowder)
-  .then(brewCoffee)
-  .then(haveCoffee)
-
-// // Do not touch the code below:
-// module.exports = {
-//   boilWater,
-//   addCoffeePowder,
-//   brewCoffee,
-//   haveCoffee,
-// };
+  
+.then((msg)=>{
+    console.log(msg)
+    return addCoffeePowder()
+})
+.then((msg1)=>{
+    console.log(msg1)
+    return brewCoffee()
+})
+.then((msg2)=>{
+    console.log(msg2)
+    return haveCoffee()
+})
+.then((msg3)=>{
+    console.log(msg3)
+    
+})

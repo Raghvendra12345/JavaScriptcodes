@@ -61,20 +61,27 @@ function reachedLadakh(){
 
 //if the function is a last function so we simply write it
 function visitLake(){ 
+     return new Promise((resolve,reject)=>{
          setTimeout(()=>{
-            console.log("visit Beautiful Pangong Lake")
-        },500)   
+            resolve("visit Beautiful Pangong Lake")
+        },500)
+     })  
 }
 
-buyBike().then((result)=>{
-    console.log(result);
-    planTrip().then((result)=>{
-        console.log(result)
-        reachedLadakh().then((result)=>{
-        console.log(result)
-        visitLake();
-    });
-
-    });
+buyBike()
+.then((msg)=>{
+    console.log(msg)
+    return planTrip()
+})
+.then((msg1)=>{
+    console.log(msg1)
+    return reachedLadakh()
+})
+.then((msg2)=>{
+    console.log(msg2)
+    return visitLake()
+})
+.then((msg3)=>{
+    console.log(msg3)
     
-});
+})
